@@ -33,7 +33,7 @@ stages:
     - task: Maven@4
       inputs:
         mavenPomFile: 'pom.xml'
-        mavenOptions: 'clean package -Dquarkus.package.type=uber-jar -D%prod.quarkus.http.port=80'
+        mavenOptions: '-Dquarkus.package.type=uber-jar -D%prod.quarkus.http.port=80'
 
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
