@@ -33,14 +33,7 @@ stages:
     - task: Maven@4
       inputs:
         mavenPomFile: 'pom.xml'
-        publishJUnitResults: true
-        testResultsFiles: '**/surefire-reports/TEST-*.xml'
-        javaHomeOption: 'JDKVersion'
-        mavenVersionOption: 'Default'
         mavenOptions: 'clean package -Dquarkus.package.type=uber-jar -D%prod.quarkus.http.port=80'
-        mavenAuthenticateFeed: false
-        effectivePomSkip: false
-        sonarQubeRunAnalysis: false
 
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
